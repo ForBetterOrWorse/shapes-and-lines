@@ -1,7 +1,8 @@
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import SquareOutlinedIcon from '@mui/icons-material/SquareOutlined';
+import ChangeHistoryOutlinedIcon from '@mui/icons-material/ChangeHistoryOutlined';
 
-export type ShapeType = 'circle' | 'square'
+export type ShapeType = 'circle' | 'square' | 'triangle'
 
 interface Props {
   type: ShapeType
@@ -21,5 +22,7 @@ export const Shape = ({ type }: Props) => {
       return <CircleOutlinedIcon style={randomMargin()} />
     case 'square':
       return <SquareOutlinedIcon style={randomMargin()} />
+    case 'triangle':
+      return <ChangeHistoryOutlinedIcon style={randomMargin()} />
   }
 }

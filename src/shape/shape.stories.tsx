@@ -20,3 +20,9 @@ export const Square: Story = {
     type: 'square'
   },
 };
+
+export const Triangle: Story = {
+  args: {
+    type: 'triangle'
+  },
+};
