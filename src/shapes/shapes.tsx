@@ -1,6 +1,6 @@
 import shuffle from 'lodash/shuffle'
 
-import { Shape, ShapeType } from "../shape"
+import { Shape, ShapeType } from '../shape'
 import './shapes.css'
 
 interface Shape {
@@ -14,10 +14,10 @@ interface Props {
 
 const rand = () => Math.floor(Math.random() * 30)
 const randomMargin = () => ({
-  marginTop: rand(), 
-  marginBottom: rand(), 
-  marginLeft: rand(), 
-  marginRight: rand() 
+  marginTop: rand(),
+  marginBottom: rand(),
+  marginLeft: rand(),
+  marginRight: rand(),
 })
 
 export const Shapes = ({ shapes }: Props) => {
@@ -25,7 +25,9 @@ export const Shapes = ({ shapes }: Props) => {
     const { count, type } = shapeConfig
 
     for (let i = count; i--; i > 0) {
-      allShapes.push(<Shape key={`${type}-${i}`} type={type} margin={randomMargin()} />)
+      allShapes.push(
+        <Shape key={`${type}-${i}`} type={type} margin={randomMargin()} />
+      )
     }
 
     return allShapes
@@ -33,9 +35,5 @@ export const Shapes = ({ shapes }: Props) => {
 
   const shuffled = shuffle(shapesToRender)
 
-  return (
-    <div className="container">
-      {shuffled}
-    </div>
-  )
+  return <div className="container">{shuffled}</div>
 }

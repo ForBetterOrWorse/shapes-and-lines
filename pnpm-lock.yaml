@@ -73,6 +73,9 @@ devDependencies:
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
+  eslint-config-prettier:
+    specifier: ^9.1.0
+    version: 9.1.0(eslint@8.57.0)
   eslint-plugin-react-hooks:
     specifier: ^4.6.0
     version: 4.6.2(eslint@8.57.0)
@@ -82,6 +85,9 @@ devDependencies:
   eslint-plugin-storybook:
     specifier: ^0.8.0
     version: 0.8.0(eslint@8.57.0)(typescript@5.4.5)
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
   storybook:
     specifier: ^8.1.1
     version: 8.1.1(react-dom@18.3.1)(react@18.3.1)
@@ -4911,6 +4917,15 @@ packages:
       esutils: 2.0.3
     optionalDependencies:
       source-map: 0.6.1
+    dev: true
+
+  /eslint-config-prettier@9.1.0(eslint@8.57.0):
+    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.57.0
     dev: true
 
   /eslint-plugin-react-hooks@4.6.2(eslint@8.57.0):

@@ -1,1 +1,1 @@
-export { Shape, type ShapeType } from "./shape";
+export { Shape, type ShapeType } from './shape'
