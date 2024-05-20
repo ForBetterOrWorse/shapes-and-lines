@@ -9,6 +9,14 @@ const meta: Meta<typeof Shape> = {
 export default meta;
 type Story = StoryObj<typeof Shape>;
 
-export const Default: Story = {
-  args: {},
+export const Circle: Story = {
+  args: {
+    type: 'circle'
+  },
+};
+
+export const Square: Story = {
+  args: {
+    type: 'square'
+  },
 };
