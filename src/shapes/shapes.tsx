@@ -1,4 +1,7 @@
+import shuffle from 'lodash/shuffle'
+
 import { Shape, ShapeType } from "../shape"
+import './shapes.css'
 
 interface Shape {
   type: ShapeType
@@ -10,7 +13,7 @@ interface Props {
 }
 
 export const Shapes = ({ shapes }: Props) => {
-  return shapes.reduce((allShapes, shapeConfig) => {
+  const shapesToRender = shapes.reduce((allShapes, shapeConfig) => {
     const { count, type } = shapeConfig
 
     for (let i = count; i--; i > 0) {
@@ -19,4 +22,12 @@ export const Shapes = ({ shapes }: Props) => {
 
     return allShapes
   }, [] as React.ReactNode[])
+
+  const shuffled = shuffle(shapesToRender)
+
+  return (
+    <div className="container">
+      {shuffled}
+    </div>
+  )
 }
