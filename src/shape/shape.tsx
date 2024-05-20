@@ -1,6 +1,4 @@
-import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined'
-import SquareOutlinedIcon from '@mui/icons-material/SquareOutlined'
-import ChangeHistoryOutlinedIcon from '@mui/icons-material/ChangeHistoryOutlined'
+import { FiCircle, FiSquare, FiTriangle } from 'react-icons/fi'
 
 export type ShapeType = 'circle' | 'square' | 'triangle'
 
@@ -17,10 +15,10 @@ interface Props {
 export const Shape = ({ type, margin }: Props) => {
   switch (type) {
     case 'circle':
-      return <CircleOutlinedIcon style={{ ...margin }} />
+      return <FiCircle style={{ ...margin }} />
     case 'square':
-      return <SquareOutlinedIcon style={{ ...margin }} />
+      return <FiSquare style={{ ...margin }} />
     case 'triangle':
-      return <ChangeHistoryOutlinedIcon style={{ ...margin }} />
+      return <FiTriangle style={{ ...margin }} />
   }
 }

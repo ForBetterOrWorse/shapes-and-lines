@@ -21,6 +21,12 @@ export const Squares: Story = {
   },
 }
 
+export const Triangles: Story = {
+  args: {
+    shapes: [{ type: 'triangle', count: 3 }],
+  },
+}
+
 export const AllShapeTypes: Story = {
   args: {
     shapes: [
