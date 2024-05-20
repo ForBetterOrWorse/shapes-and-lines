@@ -6,23 +6,21 @@ export type ShapeType = 'circle' | 'square' | 'triangle'
 
 interface Props {
   type: ShapeType
+  margin?: {
+    marginTop: number, 
+    marginBottom: number, 
+    marginLeft: number, 
+    marginRight: number 
+  }
 }
 
-const rand = () => Math.floor(Math.random() * 30)
-const randomMargin = () => ({
-  marginTop: rand(), 
-  marginBottom: rand(), 
-  marginLeft: rand(), 
-  marginRight: rand() 
-})
-
-export const Shape = ({ type }: Props) => {
+export const Shape = ({ type, margin }: Props) => {
   switch (type) {
     case 'circle':
-      return <CircleOutlinedIcon style={randomMargin()} />
+      return <CircleOutlinedIcon style={{ ...margin }} />
     case 'square':
-      return <SquareOutlinedIcon style={randomMargin()} />
+      return <SquareOutlinedIcon style={{ ...margin }} />
     case 'triangle':
-      return <ChangeHistoryOutlinedIcon style={randomMargin()} />
+      return <ChangeHistoryOutlinedIcon style={{ ...margin }} />
   }
 }
