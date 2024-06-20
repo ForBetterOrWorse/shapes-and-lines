@@ -10,15 +10,16 @@ interface Props {
     marginLeft: number
     marginRight: number
   }
+  color: string
 }
 
-export const Shape = ({ type, margin }: Props) => {
+export const Shape = ({ type, margin, color }: Props) => {
   switch (type) {
     case 'circle':
-      return <FiCircle style={{ ...margin }} />
+      return <FiCircle style={{ ...margin }} size={20} color={color} />
     case 'square':
-      return <FiSquare style={{ ...margin }} />
+      return <FiSquare style={{ ...margin }} size={20} color={color} />
     case 'triangle':
-      return <FiTriangle style={{ ...margin }} />
+      return <FiTriangle style={{ ...margin }} size={20} color={color} />
   }
 }
