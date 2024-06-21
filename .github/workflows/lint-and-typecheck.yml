@@ -1,0 +1,49 @@
+name: Lint and Typecheck
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: true
+
+      - name: Run lint
+        run: pnpm lint
+
+  typecheck:
+    name: Typecheck
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: true
+
+      - name: Run typecheck
+        run: pnpm typecheck
