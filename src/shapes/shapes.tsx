@@ -22,6 +22,7 @@ const randomMargin = () => ({
   marginRight: rand(),
 })
 const randomColor = () => sample(COLORS) as string
+const randomDegree = () => Math.floor(Math.random() * 360)
 
 export const Shapes = ({ shapes }: Props) => {
   const shapesToRender = shapes.reduce((allShapes, shapeConfig) => {
@@ -34,6 +35,7 @@ export const Shapes = ({ shapes }: Props) => {
           type={type}
           margin={randomMargin()}
           color={randomColor()}
+          rotation={randomDegree()}
         />
       )
     }
