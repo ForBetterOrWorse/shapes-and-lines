@@ -11,15 +11,18 @@ interface Props {
     marginRight: number
   }
   color: string
+  rotation: number
 }
 
-export const Shape = ({ type, margin, color }: Props) => {
+export const Shape = ({ type, margin, color, rotation }: Props) => {
+  const style = { ...margin, transform: `rotate(${rotation}deg)` }
+
   switch (type) {
     case 'circle':
-      return <FiCircle style={{ ...margin }} size={20} color={color} />
+      return <FiCircle style={style} size={20} color={color} />
     case 'square':
-      return <FiSquare style={{ ...margin }} size={20} color={color} />
+      return <FiSquare style={style} size={20} color={color} />
     case 'triangle':
-      return <FiTriangle style={{ ...margin }} size={20} color={color} />
+      return <FiTriangle style={style} size={20} color={color} />
   }
 }
