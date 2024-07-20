@@ -1,8 +1,7 @@
 import shuffle from 'lodash/shuffle'
-import sample from 'lodash/sample'
 
 import { Shape, ShapeType } from '../shape'
-import { COLORS, MAX_MARGIN } from '../constants'
+import { randomColor, randomDegree, randomMargins } from '../randomizers'
 import './shapes.css'
 
 interface Shape {
@@ -14,16 +13,6 @@ interface Props {
   shapes: Shape[]
 }
 
-const rand = () => Math.floor(Math.random() * MAX_MARGIN)
-const randomMargin = () => ({
-  marginTop: rand(),
-  marginBottom: rand(),
-  marginLeft: rand(),
-  marginRight: rand(),
-})
-const randomColor = () => sample(COLORS) as string
-const randomDegree = () => Math.floor(Math.random() * 360)
-
 export const Shapes = ({ shapes }: Props) => {
   const shapesToRender = shapes.reduce((allShapes, shapeConfig) => {
     const { count, type } = shapeConfig
@@ -33,7 +22,7 @@ export const Shapes = ({ shapes }: Props) => {
         <Shape
           key={`${type}-${i}`}
           type={type}
-          margin={randomMargin()}
+          margin={randomMargins()}
           color={randomColor()}
           rotation={randomDegree()}
         />

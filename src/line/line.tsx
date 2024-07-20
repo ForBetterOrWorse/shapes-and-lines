@@ -1,3 +1,5 @@
+import { VIEWBOX_SIZE } from '../constants'
+
 interface Move {
   mx: number
   my: number
@@ -62,7 +64,10 @@ export const Line = ({
     .join(' ')
 
   return (
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d={`${move} ${curve} ${extensions}`}
         stroke="black"
