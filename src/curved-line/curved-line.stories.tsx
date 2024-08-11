@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Line, type LineProps } from './line'
+import { CurvedLine, type CurvedLineProps } from './curved-line'
 import {
   randomCurveCoordinates,
   randomExtensionCoordinates,
@@ -8,20 +8,25 @@ import {
 } from '../randomizers'
 import { VIEWBOX_SIZE } from '../constants'
 
-const meta: Meta<typeof Line> = {
-  component: Line,
+const meta: Meta<typeof CurvedLine> = {
+  component: CurvedLine,
 }
 
-type Story = StoryObj<typeof Line>
+type Story = StoryObj<typeof CurvedLine>
 
-const LineComp = ({ move, curve, extensions, strokeOpacity }: LineProps) => (
+const CurvedLineComp = ({
+  move,
+  curve,
+  extensions,
+  strokeOpacity,
+}: CurvedLineProps) => (
   <svg
     width={VIEWBOX_SIZE}
     height={VIEWBOX_SIZE}
     viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <Line
+    <CurvedLine
       move={move}
       curve={curve}
       extensions={extensions}
@@ -31,7 +36,7 @@ const LineComp = ({ move, curve, extensions, strokeOpacity }: LineProps) => (
 )
 
 export const OneExtension: Story = {
-  render: LineComp,
+  render: CurvedLineComp,
   args: {
     move: randomMoveCoordinates(),
     curve: randomCurveCoordinates(),
@@ -40,7 +45,7 @@ export const OneExtension: Story = {
 }
 
 export const MultipleExtensions: Story = {
-  render: LineComp,
+  render: CurvedLineComp,
   args: {
     move: randomMoveCoordinates(),
     curve: randomCurveCoordinates(),
@@ -53,7 +58,7 @@ export const MultipleExtensions: Story = {
 }
 
 export const CustomOpacity: Story = {
-  render: LineComp,
+  render: CurvedLineComp,
   args: {
     move: randomMoveCoordinates(),
     curve: randomCurveCoordinates(),
