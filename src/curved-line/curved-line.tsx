@@ -19,7 +19,7 @@ interface Extension {
   sy: number
 }
 
-export interface LineProps {
+export interface CurvedLineProps {
   move: Move
   curve: Curve
   extensions: Extension[]
@@ -50,12 +50,12 @@ export interface LineProps {
  *
  * Ref: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
  */
-export const Line = ({
+export const CurvedLine = ({
   move: { mx, my },
   curve: { cx1, cy1, cx2, cy2, cx, cy },
   extensions: extensionsProp,
   strokeOpacity = 1,
-}: LineProps) => {
+}: CurvedLineProps) => {
   const move = `M ${mx} ${my}`
   const curve = `C ${cx1} ${cy1}, ${cx2} ${cy2}, ${cx} ${cy}`
 

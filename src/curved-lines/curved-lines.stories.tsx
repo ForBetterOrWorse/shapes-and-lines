@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Lines } from './lines'
+import { CurvedLines } from './curved-lines'
 
-const meta: Meta<typeof Lines> = {
-  component: Lines,
+const meta: Meta<typeof CurvedLines> = {
+  component: CurvedLines,
 }
 
-type Story = StoryObj<typeof Lines>
+type Story = StoryObj<typeof CurvedLines>
 
 export const Default: Story = {
   args: {},

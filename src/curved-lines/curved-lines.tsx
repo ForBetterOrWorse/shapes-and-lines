@@ -1,5 +1,5 @@
 import { VIEWBOX_SIZE } from '../constants'
-import { Line } from '../line'
+import { CurvedLine } from '../curved-line'
 import {
   randomCurveCoordinates,
   randomExtensionCoordinates,
@@ -7,26 +7,26 @@ import {
   randomOpacity,
 } from '../randomizers'
 
-interface LinesProps {
+interface CurvedLinesProps {
   width?: number
   height?: number
   lineCount?: number
   hasRandomStrokeOpacity?: boolean
 }
 
-export const Lines = ({
+export const CurvedLines = ({
   width = VIEWBOX_SIZE,
   height = VIEWBOX_SIZE,
   lineCount = 2,
   hasRandomStrokeOpacity,
-}: LinesProps) => {
+}: CurvedLinesProps) => {
   // If `width` and `height` are different, use width for the max value
   const randomizerMaxValue = width
   const lines = []
 
   for (let i = 0; i < lineCount; i++) {
     lines.push(
-      <Line
+      <CurvedLine
         key={i}
         move={randomMoveCoordinates(randomizerMaxValue)}
         curve={randomCurveCoordinates(randomizerMaxValue)}
