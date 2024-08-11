@@ -1,5 +1,3 @@
-import { VIEWBOX_SIZE } from '../constants'
-
 interface Move {
   mx: number
   my: number
@@ -21,7 +19,7 @@ interface Extension {
   sy: number
 }
 
-interface Props {
+export interface LineProps {
   move: Move
   curve: Curve
   extensions: Extension[]
@@ -55,7 +53,7 @@ export const Line = ({
   move: { mx, my },
   curve: { cx1, cy1, cx2, cy2, cx, cy },
   extensions: extensionsProp,
-}: Props) => {
+}: LineProps) => {
   const move = `M ${mx} ${my}`
   const curve = `C ${cx1} ${cy1}, ${cx2} ${cy2}, ${cx} ${cy}`
 
@@ -64,15 +62,10 @@ export const Line = ({
     .join(' ')
 
   return (
-    <svg
-      viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d={`${move} ${curve} ${extensions}`}
-        stroke="black"
-        fill="transparent"
-      />
-    </svg>
+    <path
+      d={`${move} ${curve} ${extensions}`}
+      stroke="black"
+      fill="transparent"
+    />
   )
 }
