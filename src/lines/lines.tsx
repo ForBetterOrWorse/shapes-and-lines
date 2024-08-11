@@ -6,47 +6,40 @@ import {
   randomMoveCoordinates,
 } from '../randomizers'
 
-export const Lines = () => {
+interface LinesProps {
+  width?: number
+  height?: number
+  lineCount?: number
+}
+
+export const Lines = ({
+  width = VIEWBOX_SIZE,
+  height = VIEWBOX_SIZE,
+  lineCount = 2,
+}: LinesProps) => {
+  // If `width` and `height` are different, use width for the max value
+  const randomizerMaxValue = width
+  const lines = []
+
+  for (let i = 0; i < lineCount; i++) {
+    lines.push(
+      <Line
+        key={i}
+        move={randomMoveCoordinates(randomizerMaxValue)}
+        curve={randomCurveCoordinates(randomizerMaxValue)}
+        extensions={[randomExtensionCoordinates(randomizerMaxValue)]}
+      />
+    )
+  }
+
   return (
     <svg
-      viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
-      <Line
-        move={randomMoveCoordinates()}
-        curve={randomCurveCoordinates()}
-        extensions={[randomExtensionCoordinates()]}
-      />
+      {lines}
     </svg>
   )
 }

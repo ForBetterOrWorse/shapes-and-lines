@@ -12,4 +12,12 @@ export const Default: Story = {
   args: {},
 }
 
+export const Custom: Story = {
+  args: {
+    width: 300,
+    height: 300,
+    lineCount: 6,
+  },
+}
+
 export default meta
