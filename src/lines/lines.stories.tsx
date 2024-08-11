@@ -12,11 +12,23 @@ export const Default: Story = {
   args: {},
 }
 
-export const Custom: Story = {
+export const CustomSvgSize: Story = {
   args: {
-    width: 300,
+    width: 200,
     height: 300,
+  },
+}
+
+export const CustomLineCount: Story = {
+  args: {
     lineCount: 6,
+  },
+}
+
+export const WithRandomStrokeOpacity: Story = {
+  args: {
+    hasRandomStrokeOpacity: true,
+    lineCount: 4,
   },
 }
 

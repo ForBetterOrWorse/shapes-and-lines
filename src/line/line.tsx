@@ -23,6 +23,7 @@ export interface LineProps {
   move: Move
   curve: Curve
   extensions: Extension[]
+  strokeOpacity?: number
 }
 
 /**
@@ -53,6 +54,7 @@ export const Line = ({
   move: { mx, my },
   curve: { cx1, cy1, cx2, cy2, cx, cy },
   extensions: extensionsProp,
+  strokeOpacity = 1,
 }: LineProps) => {
   const move = `M ${mx} ${my}`
   const curve = `C ${cx1} ${cy1}, ${cx2} ${cy2}, ${cx} ${cy}`
@@ -65,6 +67,7 @@ export const Line = ({
     <path
       d={`${move} ${curve} ${extensions}`}
       stroke="black"
+      strokeOpacity={strokeOpacity}
       fill="transparent"
     />
   )

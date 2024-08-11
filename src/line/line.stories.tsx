@@ -14,14 +14,19 @@ const meta: Meta<typeof Line> = {
 
 type Story = StoryObj<typeof Line>
 
-const LineComp = ({ move, curve, extensions }: LineProps) => (
+const LineComp = ({ move, curve, extensions, strokeOpacity }: LineProps) => (
   <svg
     width={VIEWBOX_SIZE}
     height={VIEWBOX_SIZE}
     viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <Line move={move} curve={curve} extensions={extensions} />
+    <Line
+      move={move}
+      curve={curve}
+      extensions={extensions}
+      strokeOpacity={strokeOpacity}
+    />
   </svg>
 )
 
@@ -44,6 +49,16 @@ export const MultipleExtensions: Story = {
       randomExtensionCoordinates(),
       randomExtensionCoordinates(),
     ],
+  },
+}
+
+export const CustomOpacity: Story = {
+  render: LineComp,
+  args: {
+    move: randomMoveCoordinates(),
+    curve: randomCurveCoordinates(),
+    extensions: [randomExtensionCoordinates()],
+    strokeOpacity: 0.5,
   },
 }
 

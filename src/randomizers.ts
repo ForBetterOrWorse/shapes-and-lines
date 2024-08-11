@@ -40,3 +40,6 @@ export const randomExtensionCoordinates = (max?: number) => ({
   sx: randomCoordinate(max),
   sy: randomCoordinate(max),
 })
+
+// Use `+` to convert the string back to number
+export const randomOpacity = () => +(Math.random() * 1).toFixed(2)
