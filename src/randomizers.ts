@@ -1,6 +1,12 @@
 import sample from 'lodash/sample'
 
-import { COLORS, MAX_MARGIN, VIEWBOX_SIZE } from './constants'
+import {
+  COLORS,
+  MAX_MARGIN,
+  MAX_POINTS_PER_POLYLINE,
+  MIN_POINTS_PER_POLYLINE,
+  VIEWBOX_SIZE,
+} from './constants'
 
 // ----- Randomizers for shapes -----
 const randomMargin = () => Math.floor(Math.random() * MAX_MARGIN)
@@ -47,10 +53,6 @@ const randomPointCoordinates = (max?: number) => ({
 })
 
 export const randomPoints = (pointCount: number) => {
-  if (pointCount < 1) {
-    return
-  }
-
   const points = []
 
   while (points.length < pointCount) {
@@ -58,6 +60,18 @@ export const randomPoints = (pointCount: number) => {
   }
 
   return points
+}
+
+// This function ensures that the returned point count is at least 2,
+// so that polyline can draw properly.
+export const randomPolylinePointCount = (max: number) => {
+  const mx = max > 1 ? max : MAX_POINTS_PER_POLYLINE
+
+  const count = Math.floor(
+    Math.random() * (mx - MIN_POINTS_PER_POLYLINE) + MIN_POINTS_PER_POLYLINE
+  )
+
+  return count
 }
 
 // Use `+` to convert the string back to number
