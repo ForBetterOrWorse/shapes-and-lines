@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Polyline, type PolylineProps } from './polyline'
-import { randomPointCoordinates } from '../randomizers'
+import { randomPoints } from '../randomizers'
 import { VIEWBOX_SIZE } from '../constants'
 
 const meta: Meta<typeof Polyline> = {
@@ -24,33 +24,21 @@ const PolylineComp = ({ points, strokeOpacity }: PolylineProps) => (
 export const OneLine: Story = {
   render: PolylineComp,
   args: {
-    points: [randomPointCoordinates(), randomPointCoordinates()],
+    points: randomPoints(2),
   },
 }
 
 export const MultipleLines: Story = {
   render: PolylineComp,
   args: {
-    points: [
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-    ],
+    points: randomPoints(7),
   },
 }
 
 export const CustomOpacity: Story = {
   render: PolylineComp,
   args: {
-    points: [
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-      randomPointCoordinates(),
-    ],
+    points: randomPoints(7),
     strokeOpacity: 0.5,
   },
 }
