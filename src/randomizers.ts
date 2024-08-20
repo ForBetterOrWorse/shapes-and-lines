@@ -20,6 +20,11 @@ export const randomDegree = () => Math.floor(Math.random() * 360)
 export const randomCoordinate = (max = VIEWBOX_SIZE) =>
   Math.floor(Math.random() * (max / 1))
 
+export const randomPointCoordinates = (max?: number) => ({
+  x: randomCoordinate(max),
+  y: randomCoordinate(max),
+})
+
 export const randomMoveCoordinates = (max?: number) => ({
   mx: randomCoordinate(max),
   my: randomCoordinate(max),
