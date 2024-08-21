@@ -2,7 +2,7 @@ import shuffle from 'lodash/shuffle'
 
 import { Shape, ShapeType } from '../shape'
 import { randomColor, randomDegree, randomMargins } from '../randomizers'
-import './shapes.css'
+import cls from './shapes.module.css'
 
 interface Shape {
   type: ShapeType
@@ -34,5 +34,5 @@ export const Shapes = ({ shapes }: Props) => {
 
   const shuffled = shuffle(shapesToRender)
 
-  return <div className="container">{shuffled}</div>
+  return <div className={cls.container}>{shuffled}</div>
 }
