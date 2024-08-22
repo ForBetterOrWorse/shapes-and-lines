@@ -7,7 +7,7 @@ import {
   randomOpacity,
 } from '../randomizers'
 
-interface CurvedLinesProps {
+export interface CurvedLinesProps {
   width?: number
   height?: number
   lineCount?: number

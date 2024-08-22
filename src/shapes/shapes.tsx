@@ -9,11 +9,11 @@ interface Shape {
   count: number
 }
 
-interface Props {
+export interface ShapesProps {
   shapes: Shape[]
 }
 
-export const Shapes = ({ shapes }: Props) => {
+export const Shapes = ({ shapes }: ShapesProps) => {
   const shapesToRender = shapes.reduce((allShapes, shapeConfig) => {
     const { count, type } = shapeConfig
 
