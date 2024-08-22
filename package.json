@@ -1,7 +1,16 @@
 {
   "name": "@forbetterorworse/shapes-and-lines",
+  "description": "A library that provides shape and line components.",
   "version": "0.1.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines"
+  },
+  "bugs": {
+    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines/issues"
+  },
+  "homepage": "https://github.com/ForBetterOrWorse/shapes-and-lines#readme",
   "type": "module",
   "engines": {
     "node": "20",
