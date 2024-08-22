@@ -1,30 +1,57 @@
 # shapes-and-lines
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+As the name suggests, this is a library that provides shape and line components.
 
-Currently, two official plugins are available:
+Available components:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `Shapes`: renders multiple shapes that are placed randomly within a container
+- `CurvedLines`: renders multiple random curved lines
+- `Polylines`: renders multiple random polylines
 
-## Expanding the ESLint configuration
+Storybook page: https://forbetterorworse.github.io/shapes-and-lines/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+To install the library in your project, run:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+# npm
+npm i shapes-and-lines
+
+# yarn
+yarn add shapes-and-lines
+
+# pnpm
+pnpm add shapes-and-lines
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Development
+
+### Tech Stack
+
+The main tech this library uses:
+
+- React
+- React Icons
+- Vite
+- Storybook
+
+### Setup
+
+Steps to setup the project locally:
+
+- Clone the repo
+- Run `pnpm i` to install the dependencies
+- Run `pnpm storybook` to start Storybook
+
+## Publishing
+
+Steps to publish a new package version:
+
+- Run `pnpm version [new-version]`. The command will automatically bump the package version and commit the change
+- Create a PR with the version bump
+- Merge the PR into `main`
+- On the local environment, ensure the `main` branch is up-to-date
+- Run `pnpm build` to build the package
+- Run `pnpm publish --dry-run` to verify the package content
+- Run `pnpm publish` to publish the package
