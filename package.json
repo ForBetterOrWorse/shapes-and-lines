@@ -1,5 +1,5 @@
 {
-  "name": "shapes-and-lines",
+  "name": "@fbow/shapes-and-lines",
   "private": true,
   "version": "0.1.0",
   "type": "module",
