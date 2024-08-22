@@ -9,7 +9,9 @@ import { peerDependencies } from './package.json'
 export default defineConfig({
   plugins: [
     react(),
-    dts({ rollupTypes: true }), // Output .d.ts files
+    // Output .d.ts files.
+    // The `rollupTypes` option merges all declarations into a single file.
+    dts({ rollupTypes: true }),
   ],
   build: {
     lib: {
