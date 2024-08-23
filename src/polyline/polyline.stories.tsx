@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Polyline, type PolylineProps } from './polyline'
 import { randomPoints } from '../randomizers'
-import { VIEWBOX_SIZE } from '../constants'
+import { VIEW_BOX_SIZE } from '../constants'
 
 const meta: Meta<typeof Polyline> = {
   title: 'Internal/Polyline',
@@ -13,9 +13,9 @@ type Story = StoryObj<typeof Polyline>
 
 const PolylineComp = ({ points, strokeOpacity }: PolylineProps) => (
   <svg
-    width={VIEWBOX_SIZE}
-    height={VIEWBOX_SIZE}
-    viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
+    width={VIEW_BOX_SIZE}
+    height={VIEW_BOX_SIZE}
+    viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
     xmlns="http://www.w3.org/2000/svg"
   >
     <Polyline points={points} strokeOpacity={strokeOpacity} />

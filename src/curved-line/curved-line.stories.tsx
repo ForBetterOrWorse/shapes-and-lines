@@ -6,7 +6,7 @@ import {
   randomExtensionCoordinates,
   randomMoveCoordinates,
 } from '../randomizers'
-import { VIEWBOX_SIZE } from '../constants'
+import { VIEW_BOX_SIZE } from '../constants'
 
 const meta: Meta<typeof CurvedLine> = {
   title: 'Internal/CurvedLine',
@@ -22,9 +22,9 @@ const CurvedLineComp = ({
   strokeOpacity,
 }: CurvedLineProps) => (
   <svg
-    width={VIEWBOX_SIZE}
-    height={VIEWBOX_SIZE}
-    viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
+    width={VIEW_BOX_SIZE}
+    height={VIEW_BOX_SIZE}
+    viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
     xmlns="http://www.w3.org/2000/svg"
   >
     <CurvedLine
