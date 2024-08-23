@@ -10,19 +10,41 @@ Available components:
 
 Storybook page: https://forbetterorworse.github.io/shapes-and-lines/
 
-## Installation
+## Consumption
+
+### Installation
 
 To install the library in your project, run:
 
 ```bash
 # npm
-npm i shapes-and-lines
+npm i @forbetterorworse/shapes-and-lines
 
 # yarn
-yarn add shapes-and-lines
+yarn add @forbetterorworse/shapes-and-lines
 
 # pnpm
-pnpm add shapes-and-lines
+pnpm add @forbetterorworse/shapes-and-lines
+```
+
+### Using the components
+
+```tsx
+import {
+  Shapes,
+  CurvedLines,
+  Polylines,
+} from '@forbetterorworse/shapes-and-lines'
+
+const MyApp = () => {
+  return (
+    <>
+      <Shapes />
+      <CurvedLines />
+      <Polylines />
+    </>
+  )
+}
 ```
 
 ## Development
