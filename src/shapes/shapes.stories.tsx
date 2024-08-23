@@ -8,32 +8,15 @@ const meta: Meta<typeof Shapes> = {
 }
 
 export default meta
+
 type Story = StoryObj<typeof Shapes>
 
-export const Circles: Story = {
-  args: {
-    shapes: [{ type: 'circle', count: 3 }],
-  },
+export const Default: Story = {
+  args: {},
 }
 
-export const Squares: Story = {
+export const CustomShapeCount: Story = {
   args: {
-    shapes: [{ type: 'square', count: 3 }],
-  },
-}
-
-export const Triangles: Story = {
-  args: {
-    shapes: [{ type: 'triangle', count: 3 }],
-  },
-}
-
-export const AllShapeTypes: Story = {
-  args: {
-    shapes: [
-      { type: 'circle', count: 3 },
-      { type: 'square', count: 3 },
-      { type: 'triangle', count: 3 },
-    ],
+    shapeCount: 10,
   },
 }
