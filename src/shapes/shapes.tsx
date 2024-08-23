@@ -1,8 +1,9 @@
-import shuffle from 'lodash/shuffle'
+import sample from 'lodash/sample'
 
-import { Shape, ShapeType } from '../shape'
+import { Shape, type ShapeType } from '../shape'
 import { randomColor, randomDegree, randomMargins } from '../randomizers'
 import cls from './shapes.module.css'
+import { SHAPE_TYPES } from '../constants'
 
 interface Shape {
   type: ShapeType
@@ -10,7 +11,7 @@ interface Shape {
 }
 
 export interface ShapesProps {
-  shapes: Shape[]
+  shapeCount?: number
 }
 
 /**
@@ -19,26 +20,20 @@ export interface ShapesProps {
  * Each shape is randomly assigned a type, margin, color, and rotation.
  * See [Shape](./?path=/docs/internal-shape--docs) for the shape types that the library offers.
  */
-export const Shapes = ({ shapes }: ShapesProps) => {
-  const shapesToRender = shapes.reduce((allShapes, shapeConfig) => {
-    const { count, type } = shapeConfig
+export const Shapes = ({ shapeCount = 5 }: ShapesProps) => {
+  const shapesToRender = []
 
-    for (let i = count; i--; i > 0) {
-      allShapes.push(
-        <Shape
-          key={`${type}-${i}`}
-          type={type}
-          margin={randomMargins()}
-          color={randomColor()}
-          rotation={randomDegree()}
-        />
-      )
-    }
+  for (let i = 0; i < shapeCount; i++) {
+    shapesToRender.push(
+      <Shape
+        key={i}
+        type={sample(SHAPE_TYPES)}
+        margin={randomMargins()}
+        color={randomColor()}
+        rotation={randomDegree()}
+      />
+    )
+  }
 
-    return allShapes
-  }, [] as React.ReactNode[])
-
-  const shuffled = shuffle(shapesToRender)
-
-  return <div className={cls.container}>{shuffled}</div>
+  return <div className={cls.container}>{shapesToRender}</div>
 }

@@ -1,4 +1,4 @@
-import { MAX_POINTS_PER_POLYLINE, VIEWBOX_SIZE } from '../constants'
+import { MAX_POINTS_PER_POLYLINE, VIEW_BOX_SIZE } from '../constants'
 import { Polyline } from '../polyline'
 import {
   randomOpacity,
@@ -7,8 +7,8 @@ import {
 } from '../randomizers'
 
 export interface PolylinesProps {
-  width?: number
-  height?: number
+  viewBoxWidth?: number
+  viewBoxHeight?: number
   lineCount: number
   hasRandomStrokeOpacity?: boolean
 }
@@ -20,8 +20,8 @@ export interface PolylinesProps {
  * The lines can have a random stroke opacity if `hasRandomStrokeOpacity` is enabled.
  */
 export const Polylines = ({
-  width = VIEWBOX_SIZE,
-  height = VIEWBOX_SIZE,
+  viewBoxWidth = VIEW_BOX_SIZE,
+  viewBoxHeight = VIEW_BOX_SIZE,
   lineCount = 2,
   hasRandomStrokeOpacity,
 }: PolylinesProps) => {
@@ -39,9 +39,9 @@ export const Polylines = ({
 
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      width={viewBoxWidth}
+      height={viewBoxHeight}
+      viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       xmlns="http://www.w3.org/2000/svg"
     >
       {lines}
