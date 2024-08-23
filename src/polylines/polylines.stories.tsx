@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Polylines } from './polylines'
 
 const meta: Meta<typeof Polylines> = {
-  title: 'Polylines',
+  title: 'Components/Polylines',
   component: Polylines,
 }
 

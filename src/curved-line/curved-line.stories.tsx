@@ -9,7 +9,7 @@ import {
 import { VIEWBOX_SIZE } from '../constants'
 
 const meta: Meta<typeof CurvedLine> = {
-  title: 'Curved Line',
+  title: 'Internal/CurvedLine',
   component: CurvedLine,
 }
 
