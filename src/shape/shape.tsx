@@ -1,6 +1,8 @@
 import { FiCircle, FiSquare, FiTriangle } from 'react-icons/fi'
+import { SHAPE_TYPES } from '../constants'
 
-export type ShapeType = 'circle' | 'square' | 'triangle'
+// Create a union type from the constant
+export type ShapeType = (typeof SHAPE_TYPES)[number]
 
 interface Props {
   type: ShapeType

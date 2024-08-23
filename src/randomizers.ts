@@ -5,7 +5,7 @@ import {
   MAX_MARGIN,
   MAX_POINTS_PER_POLYLINE,
   MIN_POINTS_PER_POLYLINE,
-  VIEWBOX_SIZE,
+  VIEW_BOX_SIZE,
 } from './constants'
 
 // ----- Randomizers for shapes -----
@@ -22,8 +22,9 @@ export const randomDegree = () => Math.floor(Math.random() * 360)
 
 // ----- Randomizers for lines -----
 
-// The divisor is 1 so that the coordinates can spread the entire SVG size
-export const randomCoordinate = (max = VIEWBOX_SIZE) =>
+// The divisor is 1 so that the coordinates can spread the entire SVG size.
+// Adjust the value if the display is not desirable.
+export const randomCoordinate = (max = VIEW_BOX_SIZE) =>
   Math.floor(Math.random() * (max / 1))
 
 export const randomMoveCoordinates = (max?: number) => ({

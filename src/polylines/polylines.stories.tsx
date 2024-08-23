@@ -15,8 +15,8 @@ export const Default: Story = {
 
 export const CustomSvgSize: Story = {
   args: {
-    width: 200,
-    height: 300,
+    viewBoxWidth: 200,
+    viewBoxHeight: 300,
   },
 }
 
