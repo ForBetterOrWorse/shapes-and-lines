@@ -10,7 +10,7 @@ Available components:
 
 Storybook page: https://forbetterorworse.github.io/shapes-and-lines/
 
-## Consumption
+## Usage
 
 ### Installation
 
