@@ -13,6 +13,12 @@ export interface PolylinesProps {
   hasRandomStrokeOpacity?: boolean
 }
 
+/**
+ * `Polylines` draws multiple polylines.
+ *
+ * Each polyline is created with a random point count and random point positions.
+ * The lines can have a random stroke opacity if `hasRandomStrokeOpacity` is enabled.
+ */
 export const Polylines = ({
   viewBoxWidth = VIEW_BOX_SIZE,
   viewBoxHeight = VIEW_BOX_SIZE,

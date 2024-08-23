@@ -14,6 +14,12 @@ export interface ShapesProps {
   shapeCount?: number
 }
 
+/**
+ * `Shapes` draws multiple shapes.
+ *
+ * Each shape is randomly assigned a type, margin, color, and rotation.
+ * See [Shape](./?path=/docs/internal-shape--docs) for the shape types that the library offers.
+ */
 export const Shapes = ({ shapeCount = 5 }: ShapesProps) => {
   const shapesToRender = []
 

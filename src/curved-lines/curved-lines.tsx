@@ -14,6 +14,12 @@ export interface CurvedLinesProps {
   hasRandomStrokeOpacity?: boolean
 }
 
+/**
+ * `CurvedLines` draws multiple Bézier curves.
+ *
+ * Each curve is created randomly according to the provided viewbox width,
+ * and can have a random stroke opacity if `hasRandomStrokeOpacity` is enabled.
+ */
 export const CurvedLines = ({
   viewBoxWidth = VIEW_BOX_SIZE,
   viewBoxHeight = VIEW_BOX_SIZE,
