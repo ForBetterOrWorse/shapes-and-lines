@@ -5,6 +5,7 @@ import { randomPoints } from '../randomizers'
 import { VIEWBOX_SIZE } from '../constants'
 
 const meta: Meta<typeof Polyline> = {
+  title: 'Polyline',
   component: Polyline,
 }
 
