@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Shapes } from './shapes'
 
 const meta: Meta<typeof Shapes> = {
+  title: 'Components/Shapes',
   component: Shapes,
 }
 

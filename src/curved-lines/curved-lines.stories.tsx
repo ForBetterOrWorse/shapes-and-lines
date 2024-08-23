@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CurvedLines } from './curved-lines'
 
 const meta: Meta<typeof CurvedLines> = {
+  title: 'Components/CurvedLines',
   component: CurvedLines,
 }
 
