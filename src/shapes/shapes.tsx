@@ -1,7 +1,7 @@
 import { Shape } from '../shape'
 import { randomConfigValues, randomDegree, randomMargins } from '../randomizers'
 import cls from './shapes.module.css'
-import { COLORS, SHAPE_TYPES } from '../constants'
+import { SHAPE_COLORS, SHAPE_TYPES } from '../constants'
 
 export interface ShapesProps {
   shapeCount?: number
@@ -21,7 +21,7 @@ export const Shapes = ({ shapeCount = 5 }: ShapesProps) => {
 
   const colors = randomConfigValues({
     count: shapeCount,
-    baseConstant: COLORS,
+    baseConstant: SHAPE_COLORS,
   })
 
   const shapesToRender = []
