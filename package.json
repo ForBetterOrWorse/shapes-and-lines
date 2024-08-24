@@ -1,7 +1,7 @@
 {
   "name": "@forbetterorworse/shapes-and-lines",
   "description": "A library that provides shape and line components.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "repository": {
     "type": "git",
