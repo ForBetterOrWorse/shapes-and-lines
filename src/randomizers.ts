@@ -24,12 +24,12 @@ export const randomDegree = () => Math.floor(Math.random() * 360)
  * that are randomly selected from the base constant
  * while ensuring that all values in the base constant are used.
  */
-export const randomConfigValues = ({
+export const randomConfigValues = <T>({
   count,
   baseConstant,
 }: {
   count: number
-  baseConstant: ReadonlyArray<string>
+  baseConstant: ReadonlyArray<T>
 }) => {
   let values = []
 
@@ -48,7 +48,7 @@ export const randomConfigValues = ({
     values = shuffle(baseConstant)
 
     while (values.length < count) {
-      values.push(sample(baseConstant))
+      values.push(sample(baseConstant) as T)
     }
 
     return values

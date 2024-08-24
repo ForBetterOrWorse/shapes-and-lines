@@ -1,8 +1,9 @@
 import { FiCircle, FiSquare, FiTriangle } from 'react-icons/fi'
-import { SHAPE_TYPES } from '../constants'
+import { SHAPE_COLORS, SHAPE_TYPES } from '../constants'
 
 // Create a union type from the constant
 export type ShapeType = (typeof SHAPE_TYPES)[number]
+export type ShapeColor = (typeof SHAPE_COLORS)[number]
 
 interface ShapeProps {
   type: ShapeType

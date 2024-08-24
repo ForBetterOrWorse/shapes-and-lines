@@ -1,4 +1,4 @@
-import { Shape } from '../shape'
+import { Shape, ShapeColor, type ShapeType } from '../shape'
 import { randomConfigValues, randomDegree, randomMargins } from '../randomizers'
 import cls from './shapes.module.css'
 import { SHAPE_COLORS, SHAPE_TYPES } from '../constants'
@@ -14,12 +14,12 @@ export interface ShapesProps {
  * See [Shape](./?path=/docs/internal-shape--docs) for the shape types that the library offers.
  */
 export const Shapes = ({ shapeCount = 5 }: ShapesProps) => {
-  const types = randomConfigValues({
+  const types = randomConfigValues<ShapeType>({
     count: shapeCount,
     baseConstant: SHAPE_TYPES,
   })
 
-  const colors = randomConfigValues({
+  const colors = randomConfigValues<ShapeColor>({
     count: shapeCount,
     baseConstant: SHAPE_COLORS,
   })
