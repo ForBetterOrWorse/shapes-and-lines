@@ -1,14 +1,7 @@
-import sample from 'lodash/sample'
-
-import { Shape, type ShapeType } from '../shape'
-import { randomColor, randomDegree, randomMargins } from '../randomizers'
+import { Shape } from '../shape'
+import { randomConfigValues, randomDegree, randomMargins } from '../randomizers'
 import cls from './shapes.module.css'
-import { SHAPE_TYPES } from '../constants'
-
-interface Shape {
-  type: ShapeType
-  count: number
-}
+import { COLORS, SHAPE_TYPES } from '../constants'
 
 export interface ShapesProps {
   shapeCount?: number
@@ -21,15 +14,25 @@ export interface ShapesProps {
  * See [Shape](./?path=/docs/internal-shape--docs) for the shape types that the library offers.
  */
 export const Shapes = ({ shapeCount = 5 }: ShapesProps) => {
+  const types = randomConfigValues({
+    count: shapeCount,
+    baseConstant: SHAPE_TYPES,
+  })
+
+  const colors = randomConfigValues({
+    count: shapeCount,
+    baseConstant: COLORS,
+  })
+
   const shapesToRender = []
 
   for (let i = 0; i < shapeCount; i++) {
     shapesToRender.push(
       <Shape
         key={i}
-        type={sample(SHAPE_TYPES)}
+        type={types[i]}
         margin={randomMargins()}
-        color={randomColor()}
+        color={colors[i]}
         rotation={randomDegree()}
       />
     )

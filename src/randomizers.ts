@@ -1,7 +1,7 @@
 import sample from 'lodash/sample'
+import shuffle from 'lodash/shuffle'
 
 import {
-  COLORS,
   MAX_MARGIN,
   MAX_POINTS_PER_POLYLINE,
   MIN_POINTS_PER_POLYLINE,
@@ -17,8 +17,43 @@ export const randomMargins = () => ({
   marginLeft: randomMargin(),
   marginRight: randomMargin(),
 })
-export const randomColor = () => sample(COLORS) as string
 export const randomDegree = () => Math.floor(Math.random() * 360)
+
+/**
+ * Given a shape count, this function creates an array of values
+ * that are randomly selected from the base constant
+ * while ensuring that all values in the base constant are used.
+ */
+export const randomConfigValues = ({
+  count,
+  baseConstant,
+}: {
+  count: number
+  baseConstant: ReadonlyArray<string>
+}) => {
+  let values = []
+
+  if (count < baseConstant.length) {
+    values = shuffle(baseConstant).slice(0, count)
+
+    return values
+  } else if (count === baseConstant.length) {
+    values = shuffle(baseConstant)
+
+    return values
+  } else {
+    // If `count` is greater than the number of items in the base array:
+    // - Clone the base constant and shuffle the items
+    // - Randomly pick and add items from the base array until the new array has enough items needed
+    values = shuffle(baseConstant)
+
+    while (values.length < count) {
+      values.push(sample(baseConstant))
+    }
+
+    return values
+  }
+}
 
 // ----- Randomizers for lines -----
 

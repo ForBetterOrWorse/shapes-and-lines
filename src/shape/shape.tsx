@@ -4,7 +4,7 @@ import { SHAPE_TYPES } from '../constants'
 // Create a union type from the constant
 export type ShapeType = (typeof SHAPE_TYPES)[number]
 
-interface Props {
+interface ShapeProps {
   type: ShapeType
   margin?: {
     marginTop: number
@@ -16,7 +16,7 @@ interface Props {
   rotation: number
 }
 
-export const Shape = ({ type, margin, color, rotation }: Props) => {
+export const Shape = ({ type, margin, color, rotation }: ShapeProps) => {
   const style = { ...margin, transform: `rotate(${rotation}deg)` }
 
   switch (type) {
