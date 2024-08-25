@@ -1,5 +1,5 @@
 import { FiCircle, FiSquare, FiTriangle } from 'react-icons/fi'
-import { SHAPE_COLORS, SHAPE_TYPES } from '../constants'
+import { SHAPE_COLORS, SHAPE_SIZE, SHAPE_TYPES } from '../constants'
 
 // Create a union type from the constant
 export type ShapeType = (typeof SHAPE_TYPES)[number]
@@ -22,10 +22,10 @@ export const Shape = ({ type, margin, color, rotation }: ShapeProps) => {
 
   switch (type) {
     case 'circle':
-      return <FiCircle style={style} size={20} color={color} />
+      return <FiCircle style={style} size={SHAPE_SIZE} color={color} />
     case 'square':
-      return <FiSquare style={style} size={20} color={color} />
+      return <FiSquare style={style} size={SHAPE_SIZE} color={color} />
     case 'triangle':
-      return <FiTriangle style={style} size={20} color={color} />
+      return <FiTriangle style={style} size={SHAPE_SIZE} color={color} />
   }
 }
