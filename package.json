@@ -1,7 +1,7 @@
 {
   "name": "@forbetterorworse/shapes-and-lines",
   "description": "A React library that randomly generates shapes and lines.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,12 @@
     "url": "https://github.com/ForBetterOrWorse/shapes-and-lines/issues"
   },
   "homepage": "https://github.com/ForBetterOrWorse/shapes-and-lines#readme",
-  "keywords": ["react", "components", "shapes", "lines"],
+  "keywords": [
+    "react",
+    "components",
+    "shapes",
+    "lines"
+  ],
   "type": "module",
   "engines": {
     "node": "20",
