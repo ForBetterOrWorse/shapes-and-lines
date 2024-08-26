@@ -9,7 +9,7 @@ import {
 export interface PolylinesProps {
   viewBoxWidth?: number
   viewBoxHeight?: number
-  lineCount: number
+  lineCount?: number
   hasRandomStrokeOpacity?: boolean
 }
 
