@@ -3,20 +3,7 @@
   "description": "A React library that randomly generates shapes and lines.",
   "version": "0.2.1",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines"
-  },
-  "bugs": {
-    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines/issues"
-  },
-  "homepage": "https://github.com/ForBetterOrWorse/shapes-and-lines#readme",
-  "keywords": [
-    "react",
-    "components",
-    "shapes",
-    "lines"
-  ],
+  "main": "index.js",
   "type": "module",
   "engines": {
     "node": "20",
@@ -31,8 +18,8 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
     "lodash": "4.17.21",
@@ -68,5 +55,19 @@
     "typescript": "5.2.2",
     "vite": "5.2.0",
     "vite-plugin-dts": "4.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines"
+  },
+  "bugs": {
+    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines/issues"
+  },
+  "homepage": "https://github.com/ForBetterOrWorse/shapes-and-lines#readme",
+  "keywords": [
+    "react",
+    "components",
+    "shapes",
+    "lines"
+  ]
 }

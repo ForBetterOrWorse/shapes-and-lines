@@ -12,10 +12,10 @@ importers:
         specifier: 4.17.21
         version: 4.17.21
       react:
-        specifier: 18.2.0
+        specifier: ^18.2.0
         version: 18.2.0
       react-dom:
-        specifier: 18.2.0
+        specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
       react-icons:
         specifier: 5.2.1
