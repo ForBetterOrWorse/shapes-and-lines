@@ -88,11 +88,17 @@ const randomPointCoordinates = (max?: number) => ({
   y: randomCoordinate(max),
 })
 
-export const randomPoints = (pointCount: number) => {
+export const randomPoints = ({
+  pointCount,
+  max,
+}: {
+  pointCount: number
+  max: number
+}) => {
   const points = []
 
   while (points.length < pointCount) {
-    points.push(randomPointCoordinates())
+    points.push(randomPointCoordinates(max))
   }
 
   return points
