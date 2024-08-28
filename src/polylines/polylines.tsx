@@ -25,13 +25,18 @@ export const Polylines = ({
   lineCount = 2,
   hasRandomStrokeOpacity,
 }: PolylinesProps) => {
+  // If `width` and `height` are different, use width for the max value
+  const randomizerMaxValue = viewBoxWidth
   const lines = []
 
   for (let i = 0; i < lineCount; i++) {
     lines.push(
       <Polyline
         key={i}
-        points={randomPoints(randomPolylinePointCount(MAX_POINTS_PER_POLYLINE))}
+        points={randomPoints({
+          pointCount: randomPolylinePointCount(MAX_POINTS_PER_POLYLINE),
+          max: randomizerMaxValue,
+        })}
         strokeOpacity={hasRandomStrokeOpacity ? randomOpacity() : 1}
       />
     )
