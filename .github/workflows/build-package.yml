@@ -1,4 +1,4 @@
-name: Test Storybook Build
+name: Build Package
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  test:
-    name: Test
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,5 +25,5 @@ jobs:
           version: 9
           run_install: true
 
-      - name: Check if Storybook can be built
-        run: pnpm build-storybook --test
+      - name: Check if the package can be built
+        run: pnpm run build
