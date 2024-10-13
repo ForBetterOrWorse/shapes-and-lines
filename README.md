@@ -29,6 +29,8 @@ pnpm add @forbetterorworse/shapes-and-lines
 
 ### Using the components
 
+The components can be used as follows:
+
 ```tsx
 import {
   Shapes,
@@ -47,21 +49,28 @@ const MyApp = () => {
 }
 ```
 
-## Development
+### Props interface
 
-### Tech Stack
+#### Shapes
 
-The main tech this library uses:
+| Prop         | Description                          | Required | Default |
+| ------------ | ------------------------------------ | -------- | ------- |
+| `shapeCount` | The number of shapes to be generated |          | 5       |
 
-- React
-- React Icons
-- Vite
-- Storybook
+### CurvedLines
 
-### Setup
+| Prop                     | Description                                    | Required | Default |
+| ------------------------ | ---------------------------------------------- | -------- | ------- |
+| `viewBoxWidth`           | The width of the container viewbox             |          | 200     |
+| `viewBoxHeight`          | The height of the container viewbox            |          | 200     |
+| `lineCount`              | The number of lines to be generated            |          | 2       |
+| `hasRandomStrokeOpacity` | Whether each line gets a random stroke opacity |          | false   |
 
-Steps to setup the project locally:
+### Polylines
 
-- Clone the repo
-- Run `pnpm i` to install the dependencies
-- Run `pnpm storybook` to start Storybook
+| Prop                     | Description                                    | Required | Default |
+| ------------------------ | ---------------------------------------------- | -------- | ------- |
+| `viewBoxWidth`           | The width of the container viewbox             |          | 200     |
+| `viewBoxHeight`          | The height of the container viewbox            |          | 200     |
+| `lineCount`              | The number of lines to be generated            |          | 2       |
+| `hasRandomStrokeOpacity` | Whether each line gets a random stroke opacity |          | false   |
