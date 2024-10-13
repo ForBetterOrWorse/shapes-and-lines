@@ -26,4 +26,4 @@ jobs:
           run_install: true
 
       - name: Check if Storybook can be built
-        run: pnpm build-storybook --test
+        run: pnpm run build-storybook --test

@@ -1,47 +1,23 @@
 {
   "name": "@forbetterorworse/shapes-and-lines",
-  "description": "A React library that randomly generates shapes and lines.",
-  "version": "0.2.5",
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "type": "module",
   "engines": {
     "node": "20",
     "pnpm": "9"
   },
   "scripts": {
-    "build": "tsc && vite build",
-    "prepublishOnly": "pnpm run build",
     "lint": "eslint --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc",
     "prettier": "prettier . --write",
-    "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "dependencies": {
-    "lodash": "4.17.21",
-    "react-icons": "5.2.1"
+    "build:react": "cd packages/react && tsc && vite build",
+    "storybook:react": "cd packages/react && pnpm run storybook",
+    "build-storybook:react": "cd packages/react && pnpm run build-storybook",
+    "build": "pnpm run build:react",
+    "build-storybook": "pnpm run build-storybook:react"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "1.4.0",
     "@eslint/compat": "1.1.1",
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.9.0",
-    "@storybook/addon-essentials": "8.2.9",
-    "@storybook/addon-interactions": "8.2.9",
-    "@storybook/addon-links": "8.2.9",
-    "@storybook/addon-onboarding": "8.2.9",
-    "@storybook/blocks": "8.2.9",
-    "@storybook/react": "8.2.9",
-    "@storybook/react-vite": "8.2.9",
-    "@storybook/test": "8.2.9",
     "@types/lodash": "4.17.4",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
@@ -55,24 +31,9 @@
     "eslint-plugin-storybook": "0.8.0",
     "globals": "15.9.0",
     "prettier": "3.2.5",
-    "storybook": "8.2.9",
     "typescript": "5.2.2",
     "vite": "5.2.0",
     "vite-plugin-dts": "4.0.3",
     "vite-plugin-lib-inject-css": "2.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines"
-  },
-  "bugs": {
-    "url": "https://github.com/ForBetterOrWorse/shapes-and-lines/issues"
-  },
-  "homepage": "https://github.com/ForBetterOrWorse/shapes-and-lines#readme",
-  "keywords": [
-    "react",
-    "components",
-    "shapes",
-    "lines"
-  ]
+  }
 }
