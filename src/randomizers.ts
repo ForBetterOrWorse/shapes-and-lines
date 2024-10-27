@@ -1,5 +1,7 @@
 import sample from 'lodash/sample'
 import shuffle from 'lodash/shuffle'
+import { polygon as turfPolygon } from '@turf/helpers'
+import { kinks } from '@turf/kinks'
 
 import {
   MAX_MARGIN,
@@ -7,6 +9,7 @@ import {
   MIN_POINTS_PER_POLYLINE,
   VIEW_BOX_SIZE,
 } from './constants'
+import type { Point } from './types'
 
 // ----- Randomizers for shapes -----
 const randomMargin = () => Math.floor(Math.random() * MAX_MARGIN)
@@ -118,3 +121,42 @@ export const randomPolylinePointCount = (max: number) => {
 
 // Use `+` to convert the string back to number
 export const randomOpacity = () => +(Math.random() * 1).toFixed(2)
+
+/**
+ * Generates polygon points and ensures that the polygon does not have self-intersections.
+ */
+export const randomPolygonPoints = ({
+  pointCount,
+  max,
+}: {
+  pointCount: number
+  max: number
+}): Point[] => {
+  const points = randomPoints({ pointCount, max })
+
+  // Use `turf.kinks` to detect self-intersections
+  // Ref: https://turfjs.org/docs/api/kinks#examples
+  const turfPolyPoints = points.reduce(
+    (acc, curr) => {
+      const coordinates = [curr.x, curr.y]
+      acc.push(coordinates)
+      return acc
+    },
+    [] as Array<Array<number>>
+  )
+
+  // `turf` requires that the first and end points match,
+  // so we push the coordinates of the first point to the array.
+  const turfPolyEndPoint = turfPolyPoints[0]
+  turfPolyPoints.push(turfPolyEndPoint)
+
+  const poly = turfPolygon([turfPolyPoints])
+  const selfIntersections = kinks(poly)
+
+  // Re-generate the points if there is a self-intersection.
+  if (selfIntersections.features.length) {
+    return randomPolygonPoints({ pointCount, max })
+  }
+
+  return points
+}
