@@ -28,8 +28,8 @@ importers:
         version: 5.3.0(react@18.2.0)
     devDependencies:
       '@chromatic-com/storybook':
-        specifier: 1.4.0
-        version: 1.4.0(react@18.2.0)
+        specifier: 3.2.2
+        version: 3.2.2(react@18.2.0)(storybook@8.4.0(prettier@3.3.3))
       '@eslint/compat':
         specifier: 1.1.1
         version: 1.1.1
@@ -303,9 +303,11 @@ packages:
     resolution: {integrity: sha512-zQ1ijeeCXVEh+aNL0RlmkPkG8HUiDcU2pzQQFjtbntgAczRASFzj4H+6+bV+dy1ntKR14I/DypeuRG1uma98iQ==}
     engines: {node: '>=6.9.0'}
 
-  '@chromatic-com/storybook@1.4.0':
-    resolution: {integrity: sha512-CpskwN1RsgaDMSe7mnwrmst9XeLfvrSbCJOc/eaHIDzhSiKhdbbEF83cYjMYnvODPMW8QNVdw9gWMh+yzBQtSw==}
+  '@chromatic-com/storybook@3.2.2':
+    resolution: {integrity: sha512-xmXt/GW0hAPbzNTrxYuVo43Adrtjue4DeVrsoIIEeJdGaPNNeNf+DHMlJKOBdlHmCnFUoe9R/0mLM9zUp5bKWw==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@esbuild/aix-ppc64@0.20.2':
     resolution: {integrity: sha512-D+EBOJHXdNZcLJRBkhENNG8Wji2kgc9AZ9KiPr1JuZjsNtyHzrsfLRrY0tk2H2aoFu6RANO1y1iPPUCDYWkb5g==}
@@ -1361,8 +1363,8 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
-  chromatic@11.3.5:
-    resolution: {integrity: sha512-M3xCyoEIjdcsXX3NhN60joXxEthy+wxNEcsCMM0u9u8Yna7tJvwvOsJStbOJDwEBo6TdIKckARN3BbArpduFbA==}
+  chromatic@11.19.0:
+    resolution: {integrity: sha512-3JZ1Tt26N2uDok6nXApsvHmTnkrgE0HClq1bmfF5WmCJ61bMN80CObhuFc7kiBCv5QbE7GOe3rpy3MiuZ4h9IA==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -2611,12 +2613,13 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
-  '@chromatic-com/storybook@1.4.0(react@18.2.0)':
+  '@chromatic-com/storybook@3.2.2(react@18.2.0)(storybook@8.4.0(prettier@3.3.3))':
     dependencies:
-      chromatic: 11.3.5
+      chromatic: 11.19.0
       filesize: 10.1.2
       jsonfile: 6.1.0
       react-confetti: 6.1.0(react@18.2.0)
+      storybook: 8.4.0(prettier@3.3.3)
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
@@ -3700,7 +3703,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  chromatic@11.3.5: {}
+  chromatic@11.19.0: {}
 
   color-convert@1.9.3:
     dependencies:
