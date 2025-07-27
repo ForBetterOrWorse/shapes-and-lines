@@ -9,8 +9,8 @@
   "main": "dist/index.js",
   "type": "module",
   "engines": {
-    "node": "20",
-    "pnpm": "9"
+    "node": ">=22",
+    "pnpm": ">=10"
   },
   "scripts": {
     "build": "tsc && vite build",
