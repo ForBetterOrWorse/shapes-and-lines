@@ -22,12 +22,26 @@ const PolygonComp = ({ points }: PolygonProps) => (
   </svg>
 )
 
-export const PolygonStory: Story = {
+export const ConcavePolygon: Story = {
   render: PolygonComp,
   args: {
-    points: randomPolygonPoints({ pointCount: 5, max: VIEW_BOX_SIZE }),
+    points: randomPolygonPoints({
+      pointCount: 5,
+      max: VIEW_BOX_SIZE,
+      concave: true,
+    }),
   },
 }
-PolygonStory.storyName = 'Polygon'
+
+export const ConvexPolygon: Story = {
+  render: PolygonComp,
+  args: {
+    points: randomPolygonPoints({
+      pointCount: 5,
+      max: VIEW_BOX_SIZE,
+      concave: false,
+    }),
+  },
+}
 
 export default meta
