@@ -23,25 +23,31 @@ const PolygonComp = ({ points }: PolygonProps) => (
 )
 
 export const ConcavePolygon: Story = {
-  render: PolygonComp,
-  args: {
-    points: randomPolygonPoints({
-      pointCount: 5,
-      max: VIEW_BOX_SIZE,
-      concave: true,
-    }),
-  },
+  render: (args) => (
+    <PolygonComp
+      {...args}
+      points={randomPolygonPoints({
+        pointCount: 5,
+        max: VIEW_BOX_SIZE,
+        concave: true,
+      })}
+    />
+  ),
+  args: {},
 }
 
 export const ConvexPolygon: Story = {
-  render: PolygonComp,
-  args: {
-    points: randomPolygonPoints({
-      pointCount: 5,
-      max: VIEW_BOX_SIZE,
-      concave: false,
-    }),
-  },
+  render: (args) => (
+    <PolygonComp
+      {...args}
+      points={randomPolygonPoints({
+        pointCount: 5,
+        max: VIEW_BOX_SIZE,
+        concave: false,
+      })}
+    />
+  ),
+  args: {},
 }
 
 export default meta
