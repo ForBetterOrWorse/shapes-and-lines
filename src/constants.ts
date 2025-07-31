@@ -1,5 +1,5 @@
 export const SHAPE_SIZE = 24
-export const SHAPE_TYPES = ['circle', 'square', 'triangle'] as const
+export const SHAPE_TYPES = ['circle', 'square', 'triangle', 'x'] as const
 export const SHAPE_COLORS = [
   '#eb5353',
   '#efbb00',

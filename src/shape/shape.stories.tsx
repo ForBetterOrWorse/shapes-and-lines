@@ -37,6 +37,14 @@ export const Triangle: Story = {
   },
 }
 
+export const X: Story = {
+  args: {
+    type: 'x',
+    color: '#187498',
+    rotation: 0,
+  },
+}
+
 export const RandomCircle: Story = {
   render: (args) => (
     <Shape
@@ -68,6 +76,19 @@ export const RandomTriangle: Story = {
     <Shape
       {...args}
       type="triangle"
+      color={sample(SHAPE_COLORS) as string}
+      rotation={randomDegree()}
+      margin={randomMargins()}
+    />
+  ),
+  args: {},
+}
+
+export const RandomX: Story = {
+  render: (args) => (
+    <Shape
+      {...args}
+      type="x"
       color={sample(SHAPE_COLORS) as string}
       rotation={randomDegree()}
       margin={randomMargins()}

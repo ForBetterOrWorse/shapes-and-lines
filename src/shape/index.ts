@@ -1,1 +1,5 @@
 export { Shape, type ShapeType, type ShapeColor } from './shape'
+export { Circle } from './circle'
+export { Square } from './square'
+export { Triangle } from './triangle'
+export { X } from './x'
