@@ -1,7 +1,7 @@
 {
   "name": "@forbetterorworse/shapes-and-lines",
   "description": "A React library that randomly generates shapes and lines.",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "license": "MIT",
   "files": [
     "dist"
