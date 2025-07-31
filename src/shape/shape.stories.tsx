@@ -45,6 +45,38 @@ export const X: Story = {
   },
 }
 
+export const Star: Story = {
+  args: {
+    type: 'star',
+    color: '#eb5353',
+    rotation: 0,
+  },
+}
+
+export const Heart: Story = {
+  args: {
+    type: 'heart',
+    color: '#efbb00',
+    rotation: 0,
+  },
+}
+
+export const Hexagon: Story = {
+  args: {
+    type: 'hexagon',
+    color: '#36ae7c',
+    rotation: 0,
+  },
+}
+
+export const Pentagon: Story = {
+  args: {
+    type: 'pentagon',
+    color: '#187498',
+    rotation: 0,
+  },
+}
+
 export const RandomCircle: Story = {
   render: (args) => (
     <Shape
@@ -89,6 +121,58 @@ export const RandomX: Story = {
     <Shape
       {...args}
       type="x"
+      color={sample(SHAPE_COLORS) as string}
+      rotation={randomDegree()}
+      margin={randomMargins()}
+    />
+  ),
+  args: {},
+}
+
+export const RandomStar: Story = {
+  render: (args) => (
+    <Shape
+      {...args}
+      type="star"
+      color={sample(SHAPE_COLORS) as string}
+      rotation={randomDegree()}
+      margin={randomMargins()}
+    />
+  ),
+  args: {},
+}
+
+export const RandomHeart: Story = {
+  render: (args) => (
+    <Shape
+      {...args}
+      type="heart"
+      color={sample(SHAPE_COLORS) as string}
+      rotation={randomDegree()}
+      margin={randomMargins()}
+    />
+  ),
+  args: {},
+}
+
+export const RandomHexagon: Story = {
+  render: (args) => (
+    <Shape
+      {...args}
+      type="hexagon"
+      color={sample(SHAPE_COLORS) as string}
+      rotation={randomDegree()}
+      margin={randomMargins()}
+    />
+  ),
+  args: {},
+}
+
+export const RandomPentagon: Story = {
+  render: (args) => (
+    <Shape
+      {...args}
+      type="pentagon"
       color={sample(SHAPE_COLORS) as string}
       rotation={randomDegree()}
       margin={randomMargins()}
