@@ -6,7 +6,11 @@ interface CircleProps {
   style?: CSSProperties
 }
 
-export const Circle = ({ size = 24, color = 'currentColor', style }: CircleProps) => {
+export const Circle = ({
+  size = 24,
+  color = 'currentColor',
+  style,
+}: CircleProps) => {
   return (
     <svg
       width={size}
@@ -14,7 +18,7 @@ export const Circle = ({ size = 24, color = 'currentColor', style }: CircleProps
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       style={style}

@@ -14,7 +14,7 @@ export const X = ({ size = 24, color = 'currentColor', style }: XProps) => {
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       style={style}

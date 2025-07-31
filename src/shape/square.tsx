@@ -6,7 +6,11 @@ interface SquareProps {
   style?: CSSProperties
 }
 
-export const Square = ({ size = 24, color = 'currentColor', style }: SquareProps) => {
+export const Square = ({
+  size = 24,
+  color = 'currentColor',
+  style,
+}: SquareProps) => {
   return (
     <svg
       width={size}
@@ -14,7 +18,7 @@ export const Square = ({ size = 24, color = 'currentColor', style }: SquareProps
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       style={style}
