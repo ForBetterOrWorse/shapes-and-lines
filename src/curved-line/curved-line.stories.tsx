@@ -37,33 +37,47 @@ const CurvedLineComp = ({
 )
 
 export const OneExtension: Story = {
-  render: CurvedLineComp,
+  render: (args) => (
+    <CurvedLineComp
+      {...args}
+      move={randomMoveCoordinates()}
+      curve={randomCurveCoordinates()}
+      extensions={[randomExtensionCoordinates()]}
+    />
+  ),
   args: {
-    move: randomMoveCoordinates(),
-    curve: randomCurveCoordinates(),
-    extensions: [randomExtensionCoordinates()],
+    strokeOpacity: 1,
   },
 }
 
 export const MultipleExtensions: Story = {
-  render: CurvedLineComp,
+  render: (args) => (
+    <CurvedLineComp
+      {...args}
+      move={randomMoveCoordinates()}
+      curve={randomCurveCoordinates()}
+      extensions={[
+        randomExtensionCoordinates(),
+        randomExtensionCoordinates(),
+        randomExtensionCoordinates(),
+      ]}
+    />
+  ),
   args: {
-    move: randomMoveCoordinates(),
-    curve: randomCurveCoordinates(),
-    extensions: [
-      randomExtensionCoordinates(),
-      randomExtensionCoordinates(),
-      randomExtensionCoordinates(),
-    ],
+    strokeOpacity: 1,
   },
 }
 
 export const CustomOpacity: Story = {
-  render: CurvedLineComp,
+  render: (args) => (
+    <CurvedLineComp
+      {...args}
+      move={randomMoveCoordinates()}
+      curve={randomCurveCoordinates()}
+      extensions={[randomExtensionCoordinates()]}
+    />
+  ),
   args: {
-    move: randomMoveCoordinates(),
-    curve: randomCurveCoordinates(),
-    extensions: [randomExtensionCoordinates()],
     strokeOpacity: 0.5,
   },
 }

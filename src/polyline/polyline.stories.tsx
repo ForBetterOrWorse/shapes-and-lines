@@ -23,23 +23,37 @@ const PolylineComp = ({ points, strokeOpacity }: PolylineProps) => (
 )
 
 export const OneLine: Story = {
-  render: PolylineComp,
+  render: (args) => (
+    <PolylineComp
+      {...args}
+      points={randomPoints({ pointCount: 2, max: VIEW_BOX_SIZE })}
+    />
+  ),
   args: {
-    points: randomPoints({ pointCount: 2, max: VIEW_BOX_SIZE }),
+    strokeOpacity: 1,
   },
 }
 
 export const MultipleLines: Story = {
-  render: PolylineComp,
+  render: (args) => (
+    <PolylineComp
+      {...args}
+      points={randomPoints({ pointCount: 7, max: VIEW_BOX_SIZE })}
+    />
+  ),
   args: {
-    points: randomPoints({ pointCount: 7, max: VIEW_BOX_SIZE }),
+    strokeOpacity: 1,
   },
 }
 
 export const CustomOpacity: Story = {
-  render: PolylineComp,
+  render: (args) => (
+    <PolylineComp
+      {...args}
+      points={randomPoints({ pointCount: 7, max: VIEW_BOX_SIZE })}
+    />
+  ),
   args: {
-    points: randomPoints({ pointCount: 7, max: VIEW_BOX_SIZE }),
     strokeOpacity: 0.5,
   },
 }
