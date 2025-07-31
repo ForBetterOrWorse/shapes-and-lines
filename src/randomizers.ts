@@ -123,17 +123,9 @@ export const randomPolylinePointCount = (max: number) => {
 export const randomOpacity = () => +(Math.random() * 1).toFixed(2)
 
 /**
- * Generates polygon points and ensures that the polygon does not have self-intersections.
+ * Checks if a polygon has self-intersections using Turf.js
  */
-export const randomPolygonPoints = ({
-  pointCount,
-  max,
-}: {
-  pointCount: number
-  max: number
-}): Point[] => {
-  const points = randomPoints({ pointCount, max })
-
+const hasSelfintersections = (points: Point[]): boolean => {
   // Use `turf.kinks` to detect self-intersections
   // Ref: https://turfjs.org/docs/api/kinks#examples
   const turfPolyPoints = points.reduce(
@@ -153,9 +145,93 @@ export const randomPolygonPoints = ({
   const poly = turfPolygon([turfPolyPoints])
   const selfIntersections = kinks(poly)
 
-  // Re-generate the points if there is a self-intersection.
-  if (selfIntersections.features.length) {
-    return randomPolygonPoints({ pointCount, max })
+  return selfIntersections.features.length > 0
+}
+
+/**
+ * Generates points for a polygon by creating a base polygon.
+ * If concave is true, makes one or more vertices "dent inward" to guarantee concavity.
+ * If concave is false, generates a convex polygon.
+ */
+const generatePolygonPoints = ({
+  pointCount,
+  max,
+  concave,
+}: {
+  pointCount: number
+  max: number
+  concave: boolean
+}): Point[] => {
+  // Start with points arranged in a circle to form a convex base
+  const center = { x: max / 2, y: max / 2 }
+  const radius = Math.min(max * 0.3, max * 0.4) // Use 30-40% of max as radius
+  const points: Point[] = []
+
+  // Generate points in a circular arrangement
+  for (let i = 0; i < pointCount; i++) {
+    const angle = (i / pointCount) * 2 * Math.PI
+    const x = center.x + radius * Math.cos(angle)
+    const y = center.y + radius * Math.sin(angle)
+    points.push({ x: Math.round(x), y: Math.round(y) })
+  }
+
+  if (concave) {
+    // Make at least one point concave by moving it toward the center
+    // This guarantees the polygon will be concave
+    const concaveIndex = Math.floor(Math.random() * pointCount)
+    const concavePoint = points[concaveIndex]
+
+    // Move the point toward center by 30-70% of the distance
+    const moveRatio = 0.3 + Math.random() * 0.4
+    const newX = concavePoint.x + (center.x - concavePoint.x) * moveRatio
+    const newY = concavePoint.y + (center.y - concavePoint.y) * moveRatio
+
+    points[concaveIndex] = { x: Math.round(newX), y: Math.round(newY) }
+
+    // Optionally add more concave points for variety (20% chance per remaining point)
+    for (let i = 0; i < pointCount; i++) {
+      if (i !== concaveIndex && Math.random() < 0.2) {
+        const point = points[i]
+        const ratio = 0.2 + Math.random() * 0.3
+        const x = point.x + (center.x - point.x) * ratio
+        const y = point.y + (center.y - point.y) * ratio
+        points[i] = { x: Math.round(x), y: Math.round(y) }
+      }
+    }
+  }
+
+  // Add some randomness to point positions
+  const randomnessAmount = concave ? 20 : 15 // Less randomness for convex to maintain convexity
+  return points.map((point) => ({
+    x: Math.max(
+      0,
+      Math.min(max, point.x + (Math.random() - 0.5) * randomnessAmount)
+    ),
+    y: Math.max(
+      0,
+      Math.min(max, point.y + (Math.random() - 0.5) * randomnessAmount)
+    ),
+  }))
+}
+
+/**
+ * Generates polygon points that form a concave polygon and ensures
+ * that the polygon does not have self-intersections.
+ */
+export const randomPolygonPoints = ({
+  pointCount,
+  max,
+  concave = true,
+}: {
+  pointCount: number
+  max: number
+  concave?: boolean
+}): Point[] => {
+  const points = generatePolygonPoints({ pointCount, max, concave })
+
+  // Re-generate the points if there is a self-intersection
+  if (hasSelfintersections(points)) {
+    return randomPolygonPoints({ pointCount, max, concave })
   }
 
   return points
