@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Polygons } from './polygons'
 
 const meta: Meta<typeof Polygons> = {
-  title: 'Internal/Polygons',
+  title: 'Components/Polygons',
   component: Polygons,
 }
 

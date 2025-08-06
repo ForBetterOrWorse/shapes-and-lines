@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ConcavePolygon, ConvexPolygon } from './polygon'
 import { randomPolygonPoints } from '../randomizers'
-// Point type for clarity
+
 type Point = { x: number; y: number }
 
 const meta: Meta = {
