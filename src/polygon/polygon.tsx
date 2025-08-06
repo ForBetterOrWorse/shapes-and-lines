@@ -1,15 +1,8 @@
-import { SHAPE_COLORS } from '../constants'
+import { VIEW_BOX_SIZE } from '../constants'
+import { randomPolygonPoints } from '../randomizers'
 
-// Create a union type from the constant
-export type PolygonColor = (typeof SHAPE_COLORS)[number]
-
-interface Point {
-  x: number
-  y: number
-}
-
-export interface PolygonProps {
-  points: Point[]
+export interface PolygonBaseProps {
+  edgeCount: number
   margin?: {
     marginTop: number
     marginBottom: number
@@ -18,21 +11,44 @@ export interface PolygonProps {
   }
 }
 
-export const Polygon = ({ points, margin }: PolygonProps) => {
-  const style = { ...margin }
+export const ConcavePolygon = ({ edgeCount = 3, margin }: PolygonBaseProps) => {
+  const points = randomPolygonPoints({
+    pointCount: edgeCount,
+    max: VIEW_BOX_SIZE,
+    concave: true,
+  })
 
-  if (points.length < 3) {
-    console.error(
-      'The component needs at least three points in order to draw a polygon.'
-    )
-  }
+  const pts = points.map((p) => `${p.x} ${p.y}`).join(' ')
 
-  const pts = points
-    .reduce((acc, curr) => {
-      acc += `${curr.x} ${curr.y}` + ' '
-      return acc
-    }, '')
-    .trim()
+  return (
+    <svg
+      width={VIEW_BOX_SIZE}
+      height={VIEW_BOX_SIZE}
+      viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon points={pts} fill="none" stroke="black" style={{ ...margin }} />
+    </svg>
+  )
+}
 
-  return <polygon points={pts} fill="none" stroke="black" style={style} />
+export const ConvexPolygon = ({ edgeCount = 3, margin }: PolygonBaseProps) => {
+  const points = randomPolygonPoints({
+    pointCount: edgeCount,
+    max: VIEW_BOX_SIZE,
+    concave: false,
+  })
+
+  const pts = points.map((p) => `${p.x} ${p.y}`).join(' ')
+
+  return (
+    <svg
+      width={VIEW_BOX_SIZE}
+      height={VIEW_BOX_SIZE}
+      viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon points={pts} fill="none" stroke="black" style={{ ...margin }} />
+    </svg>
+  )
 }

@@ -1,53 +1,55 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ConcavePolygon, ConvexPolygon } from './polygon'
 
-import { Polygon, type PolygonProps } from './polygon'
-import { randomPolygonPoints } from '../randomizers'
-import { VIEW_BOX_SIZE } from '../constants'
-
-const meta: Meta<typeof Polygon> = {
+const meta: Meta = {
   title: 'Internal/Polygon',
-  component: Polygon,
 }
 
-type Story = StoryObj<typeof Polygon>
+type ConcaveStory = StoryObj<typeof ConcavePolygon>
+type ConvexStory = StoryObj<typeof ConvexPolygon>
 
-const PolygonComp = ({ points }: PolygonProps) => (
-  <svg
-    width={VIEW_BOX_SIZE}
-    height={VIEW_BOX_SIZE}
-    viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <Polygon points={points} />
-  </svg>
-)
-
-export const ConcavePolygon: Story = {
+export const Concave: ConcaveStory = {
   render: (args) => (
-    <PolygonComp
-      {...args}
-      points={randomPolygonPoints({
-        pointCount: 5,
-        max: VIEW_BOX_SIZE,
-        concave: true,
-      })}
-    />
+    <svg
+      width={400}
+      height={400}
+      viewBox="0 0 400 400"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ConcavePolygon {...args} />
+    </svg>
   ),
-  args: {},
+  args: {
+    edgeCount: 5,
+  },
+  argTypes: {
+    edgeCount: {
+      control: { type: 'number', min: 3, max: 12 },
+      description: 'Number of edges (and points) for the polygon',
+    },
+  },
 }
 
-export const ConvexPolygon: Story = {
+export const Convex: ConvexStory = {
   render: (args) => (
-    <PolygonComp
-      {...args}
-      points={randomPolygonPoints({
-        pointCount: 5,
-        max: VIEW_BOX_SIZE,
-        concave: false,
-      })}
-    />
+    <svg
+      width={400}
+      height={400}
+      viewBox="0 0 400 400"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ConvexPolygon {...args} />
+    </svg>
   ),
-  args: {},
+  args: {
+    edgeCount: 5,
+  },
+  argTypes: {
+    edgeCount: {
+      control: { type: 'number', min: 3, max: 12 },
+      description: 'Number of edges (and points) for the polygon',
+    },
+  },
 }
 
 export default meta
