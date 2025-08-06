@@ -1,15 +1,5 @@
-import { SHAPE_COLORS } from '../constants'
-
-// Create a union type from the constant
-export type PolygonColor = (typeof SHAPE_COLORS)[number]
-
-interface Point {
-  x: number
-  y: number
-}
-
-export interface PolygonProps {
-  points: Point[]
+interface PolygonBaseProps {
+  points: { x: number; y: number }[]
   margin?: {
     marginTop: number
     marginBottom: number
@@ -18,21 +8,16 @@ export interface PolygonProps {
   }
 }
 
-export const Polygon = ({ points, margin }: PolygonProps) => {
-  const style = { ...margin }
+export const ConcavePolygon = ({ points, margin }: PolygonBaseProps) => {
+  const pts = points.map((p) => `${p.x} ${p.y}`).join(' ')
+  return (
+    <polygon points={pts} fill="none" stroke="black" style={{ ...margin }} />
+  )
+}
 
-  if (points.length < 3) {
-    console.error(
-      'The component needs at least three points in order to draw a polygon.'
-    )
-  }
-
-  const pts = points
-    .reduce((acc, curr) => {
-      acc += `${curr.x} ${curr.y}` + ' '
-      return acc
-    }, '')
-    .trim()
-
-  return <polygon points={pts} fill="none" stroke="black" style={style} />
+export const ConvexPolygon = ({ points, margin }: PolygonBaseProps) => {
+  const pts = points.map((p) => `${p.x} ${p.y}`).join(' ')
+  return (
+    <polygon points={pts} fill="none" stroke="black" style={{ ...margin }} />
+  )
 }

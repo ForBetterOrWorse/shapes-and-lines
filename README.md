@@ -36,6 +36,7 @@ import {
   Shapes,
   CurvedLines,
   Polylines,
+  Polygons,
 } from '@forbetterorworse/shapes-and-lines'
 
 const MyApp = () => {
@@ -44,6 +45,7 @@ const MyApp = () => {
       <Shapes />
       <CurvedLines />
       <Polylines />
+      <Polygons />
     </>
   )
 }
@@ -74,3 +76,9 @@ const MyApp = () => {
 | `viewBoxHeight`          | The height of the container viewbox            |          | 200     |
 | `lineCount`              | The number of lines to be generated            |          | 2       |
 | `hasRandomStrokeOpacity` | Whether each line gets a random stroke opacity |          | false   |
+
+### Polygons
+
+| Prop           | Description                            | Required | Default |
+| -------------- | -------------------------------------- | -------- | ------- |
+| `polygonCount` | The number of polygons to be generated |          | 1       |

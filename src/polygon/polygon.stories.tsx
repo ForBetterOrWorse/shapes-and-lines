@@ -1,53 +1,56 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Polygon, type PolygonProps } from './polygon'
+import { ConcavePolygon, ConvexPolygon } from './polygon'
 import { randomPolygonPoints } from '../randomizers'
-import { VIEW_BOX_SIZE } from '../constants'
 
-const meta: Meta<typeof Polygon> = {
+type Point = { x: number; y: number }
+
+const meta: Meta = {
   title: 'Internal/Polygon',
-  component: Polygon,
 }
 
-type Story = StoryObj<typeof Polygon>
+type ConcaveStory = StoryObj<typeof ConcavePolygon>
+type ConvexStory = StoryObj<typeof ConvexPolygon>
 
-const PolygonComp = ({ points }: PolygonProps) => (
-  <svg
-    width={VIEW_BOX_SIZE}
-    height={VIEW_BOX_SIZE}
-    viewBox={`0 0 ${VIEW_BOX_SIZE} ${VIEW_BOX_SIZE}`}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <Polygon points={points} />
-  </svg>
-)
-
-export const ConcavePolygon: Story = {
-  render: (args) => (
-    <PolygonComp
-      {...args}
-      points={randomPolygonPoints({
-        pointCount: 5,
-        max: VIEW_BOX_SIZE,
-        concave: true,
-      })}
-    />
-  ),
-  args: {},
+export const Concave: ConcaveStory = {
+  render: () => {
+    const pointCount = Math.floor(Math.random() * 7) + 3 // 3-9 edges
+    const points: Point[] = randomPolygonPoints({
+      pointCount,
+      max: 100,
+      concave: true,
+    })
+    return (
+      <svg
+        width={400}
+        height={400}
+        viewBox="0 0 400 400"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ConcavePolygon points={points} />
+      </svg>
+    )
+  },
 }
 
-export const ConvexPolygon: Story = {
-  render: (args) => (
-    <PolygonComp
-      {...args}
-      points={randomPolygonPoints({
-        pointCount: 5,
-        max: VIEW_BOX_SIZE,
-        concave: false,
-      })}
-    />
-  ),
-  args: {},
+export const Convex: ConvexStory = {
+  render: () => {
+    const pointCount = Math.floor(Math.random() * 7) + 3 // 3-9 edges
+    const points: Point[] = randomPolygonPoints({
+      pointCount,
+      max: 100,
+      concave: false,
+    })
+    return (
+      <svg
+        width={400}
+        height={400}
+        viewBox="0 0 400 400"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ConvexPolygon points={points} />
+      </svg>
+    )
+  },
 }
 
 export default meta
