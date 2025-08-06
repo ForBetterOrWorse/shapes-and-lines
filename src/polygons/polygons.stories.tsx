@@ -10,12 +10,6 @@ export default meta
 
 type Story = StoryObj<typeof Polygons>
 
-export const Default: Story = {
-  args: {
-    polygonCount: 3,
-  },
-}
-
 export const SinglePolygon: Story = {
   args: {
     polygonCount: 1,
