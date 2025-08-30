@@ -13,6 +13,7 @@
     "pnpm": ">=10"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "tsc && vite build",
     "prepublishOnly": "pnpm run build",
     "lint": "eslint --report-unused-disable-directives --max-warnings 0",
